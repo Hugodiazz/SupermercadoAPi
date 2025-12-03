@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @Setter
 @AllArgsConstructor
@@ -20,4 +22,8 @@ public class Venta {
     private Double total;
     @ManyToOne
     private Sucursal sucursal;
+
+    @OneToMany(mappedBy = "venta")
+    private List<DetalleVenta> detalle = new ArrayList<>();
+
 }
